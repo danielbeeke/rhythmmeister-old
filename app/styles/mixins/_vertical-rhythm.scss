@@ -21,7 +21,7 @@
       padding-bottom: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($bottom * $baseline);
     }
 
-    line-height: $line-height;
+    line-height: $font-size * $line-height;
     font-size: $font-size;
   }
   @else {
