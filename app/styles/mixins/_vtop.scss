@@ -19,10 +19,18 @@
 
   @if ($cap-height-in-pixels > (floor($rows) * $baseline)) {
     $offset: (ceil($rows) * $baseline) - $cap-height-in-pixels;
+    $box-height-with-top: $box-height + $offset;
+    padding-bottom: ceil($rows + 1) * $baseline - $box-height-with-top;
     padding-top: $offset;
+    @debug 'if';
   }
   @else {
-    padding-top: (floor($rows) * $baseline) - $cap-height-in-pixels;
+    @debug 'else';
+    $offset: (floor($rows) * $baseline) - $cap-height-in-pixels;
+    $box-height-with-top: $box-height + $offset;
+
+    padding-bottom: ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top;
+    padding-top: $offset;
   }
 
   line-height: $line-height;
