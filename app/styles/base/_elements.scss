@@ -1,0 +1,19 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+  @include visualize-vertical-rhythm();
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+h1 {
+  margin: 0;
+  @include vertical-rhythm(0, 1, xl);
+}
+
+* {
+  box-sizing: border-box;
+}

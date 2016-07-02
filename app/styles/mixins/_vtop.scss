@@ -1,0 +1,30 @@
+@mixin vertical-rhythm($top, $bottom, $size-name: '') {
+  //$offset: 0px;
+  //
+  //@if ($size-name) {
+  //  $font-size: map-get($font-sizes, $size-name);
+  //  $cap-height: map-get($cap-heights, $size-name);
+  //
+  //  font-size: $font-size;
+  //  padding-top: ($baseline-height - $cap-height * $font-size) + ($top * $baseline-height);
+  //}
+
+  $font-size: map-get($font-sizes, $size-name);
+  $cap-height: map-get($cap-heights, $size-name);
+
+  $box-height: $font-size * $line-height;
+  $cap-height-in-pixels: $box-height * $cap-height;
+
+  $rows: $line-height * $font-size / $baseline;
+
+  @if ($cap-height-in-pixels > (floor($rows) * $baseline)) {
+    $offset: (ceil($rows) * $baseline) - $cap-height-in-pixels;
+    padding-top: $offset;
+  }
+  @else {
+    padding-top: (floor($rows) * $baseline) - $cap-height-in-pixels;
+  }
+
+  line-height: $line-height;
+  font-size: $font-size;
+}
