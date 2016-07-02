@@ -11,7 +11,29 @@ html, body {
 
 h1 {
   margin: 0;
-  @include vertical-rhythm(0, 1, xl);
+  @include vertical-rhythm(1, 1, xl);
+}
+
+h2 {
+  margin: 0;
+  @include vertical-rhythm(0, 0, l);
+}
+
+
+h3 {
+  margin: 0;
+  @include vertical-rhythm(0, 0, m);
+}
+
+
+h4 {
+  margin: 0;
+  @include vertical-rhythm(0, 0, s);
+}
+
+p {
+  margin: 0;
+  @include vertical-rhythm(0, 0, s);
 }
 
 * {

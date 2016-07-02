@@ -1,0 +1,35 @@
+@mixin vertical-rhythm($top, $bottom, $size-name: '') {
+  @if ($size-name) {
+    $font-size: map-get($font-sizes, $size-name);
+    $cap-height: map-get($cap-heights, $size-name);
+
+    $box-height: $font-size * $line-height;
+    $cap-height-in-pixels: $box-height * $cap-height;
+
+    $rows: $line-height * $font-size / $baseline;
+
+    @if ($cap-height-in-pixels > (floor($rows) * $baseline)) {
+      $offset: (ceil($rows) * $baseline) - $cap-height-in-pixels;
+      $box-height-with-top: $box-height + $offset;
+      padding-top: $offset + ($top * $baseline);
+      padding-bottom: (ceil($rows + 1) * $baseline - $box-height-with-top) + ($bottom * $baseline);
+    }
+    @else {
+      $offset: (floor($rows) * $baseline) - $cap-height-in-pixels;
+      $box-height-with-top: $box-height + $offset;
+      padding-top: $offset + ($top * $baseline);
+      padding-bottom: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($bottom * $baseline);
+    }
+
+    line-height: $line-height;
+    font-size: $font-size;
+  }
+  @else {
+    @if ($top) {
+      padding-top: $top * $baseline;
+    }
+    @if ($bottom) {
+      padding-bottom: $bottom * $baseline;
+    }
+  }
+}
