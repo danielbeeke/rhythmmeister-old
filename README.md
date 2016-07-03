@@ -56,6 +56,8 @@ p {
 
 ## TODO
 
+- Clean up the repo
+- Make it possible to use with bower etc
 - Make it possible to change the font size without needing to fix the cap height
 - Responsive wrapper?
 - Your requests
