@@ -1,3 +1,4 @@
-@mixin visualize-vertical-rhythm($color: 'ff0000') {
-  background-image: url('http://basehold.it/i/#{strip-unit($baseline)}/#{$color}');
+@mixin visualize-vertical-rhythm($color: '0000ff') {
+  //background-image: url('http://basehold.it/i/#{strip-unit($baseline)}/#{$color}');
+  background-image: url('/images/grid.png');
 }

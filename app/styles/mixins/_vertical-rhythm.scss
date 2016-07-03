@@ -5,10 +5,17 @@
     $font-size: map-get($font-sizes, $size-name);
     $cap-height: map-get($cap-heights, $size-name);
 
+    $rows: $relative-line-height * $font-size / $baseline;
+
+    $new-line-height-percentage-of-old: ceil($rows) * $baseline / (($relative-line-height * $font-size) / 100);
+    $new-relative-line-height: $line-height * $new-line-height-percentage-of-old / 100;
+    $relative-line-height: $new-relative-line-height;
+
     $box-height: $font-size * $relative-line-height;
+
+    // User entered cap height is mixed with the line height
     $cap-height-in-pixels: $box-height * $cap-height;
 
-    $rows: $line-height * $font-size / $baseline;
 
     @if ($cap-height-in-pixels > (floor($rows) * $baseline)) {
       $offset: (ceil($rows) * $baseline) - $cap-height-in-pixels;
@@ -23,7 +30,7 @@
       padding-bottom: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($bottom * $baseline);
     }
 
-    line-height: $font-size * $line-height;
+    line-height: ceil($rows) * $baseline;
     font-size: $font-size;
   }
   @else {

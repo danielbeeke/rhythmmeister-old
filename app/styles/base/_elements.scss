@@ -1,38 +1,40 @@
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Aleo;
   @include visualize-vertical-rhythm();
+  padding: 0;
 }
 
 html, body {
   margin: 0;
-  padding: 0;
   font-size: 16px;
 }
 
-h1 {
+body {
+  padding: 0 $baseline;
+}
+
+h1, h2, h3, h4, p {
   margin: 0;
-  @include vertical-rhythm(1, 1, xl);
+}
+
+h1 {
+  @include vertical-rhythm(0, 0, xl);
 }
 
 h2 {
-  margin: 0;
   @include vertical-rhythm(0, 0, l);
 }
 
 
 h3 {
-  margin: 0;
   @include vertical-rhythm(0, 0, m);
 }
 
-
 h4 {
-  margin: 0;
   @include vertical-rhythm(1, 0, s);
 }
 
 p {
-  margin: 0;
   @include vertical-rhythm(1, 0, s);
 }
 
