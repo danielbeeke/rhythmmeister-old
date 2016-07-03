@@ -1,5 +1,10 @@
 # vertical-rhythm mixin
 
+### Perfect vertical rhythm for your designs with this sass mixin.
+<br>
+![Screenshot](http://i.imgur.com/YRnOtEO.png)
+<br><br>
+
 ```
 @mixin vertical-rhythm(
     $padding-top: 0, 
@@ -11,7 +16,10 @@
 ```
 
 With this mixin you can create a layout with perfect vertical rhythm.
-This mixin uses the cap height instead of the line height, so it is more in line with press.
+This mixin uses the cap height and baseline instead of the line height, so it is more in line with press.
+
+![Cap height explanation](https://i.imgur.com/cx7dTXN.png)
+
 
 ### Variables
 
@@ -46,5 +54,8 @@ p {
 }
 ```
 
-## The result
-![Screenshot](http://i.imgur.com/YRnOtEO.png)
+## TODO
+
+- Make it possible to change the font size without needing to fix the cap height
+- Responsive wrapper?
+- Your requests
