@@ -3,13 +3,13 @@
     $relative-line-height: $line-height;
 
     $font-size: map-get($font-sizes, $size-name);
-    $cap-height: map-get($cap-heights, $size-name);
 
     $rows: $relative-line-height * $font-size / $baseline;
 
     $new-line-height-percentage-of-old: ceil($rows) * $baseline / (($relative-line-height * $font-size) / 100);
     $new-relative-line-height: $line-height * $new-line-height-percentage-of-old / 100;
     $relative-line-height: $new-relative-line-height;
+    $cap-height: map-get($cap-heights, $size-name) * $line-height;
 
     $box-height: $font-size * $relative-line-height;
 
