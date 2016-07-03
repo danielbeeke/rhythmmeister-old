@@ -1,0 +1,15 @@
+.box1 {
+  @include vertical-rhythm(7, 0, 1, 1);
+  width: 50%;
+  background: orangered;
+  float: right;
+}
+
+.box2 {
+  width: 50%;
+  float: left;
+}
+
+.box3 {
+  clear: both;
+}

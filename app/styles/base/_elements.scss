@@ -18,24 +18,25 @@ h1, h2, h3, h4, p {
 }
 
 h1 {
-  @include vertical-rhythm(0, 0, xl);
+  @include vertical-rhythm(1, 1, 0, 0, xl);
 }
 
 h2 {
-  @include vertical-rhythm(0, 0, l);
+  @include vertical-rhythm(0, 1, 0, 0, l);
 }
 
 
 h3 {
-  @include vertical-rhythm(0, 0, m);
+  @include vertical-rhythm(0, 0, 0, 0, m);
+  color: orangered;
 }
 
 h4 {
-  @include vertical-rhythm(1, 0, s);
+  @include vertical-rhythm(1, 0, 0, 0, s);
 }
 
 p {
-  @include vertical-rhythm(1, 0, s);
+  @include vertical-rhythm(0, 0, 0, 0, s);
 }
 
 * {

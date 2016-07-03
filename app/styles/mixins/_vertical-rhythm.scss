@@ -1,5 +1,5 @@
-@mixin vertical-rhythm($top, $bottom, $size-name: '') {
-  @if ($size-name) {
+@mixin vertical-rhythm($padding-top: 0, $padding-bottom: 0, $margin-top: 0, $margin-bottom: 0, $size-name: '') {
+  @if ($size-name != '') {
     $relative-line-height: $line-height;
 
     $font-size: map-get($font-sizes, $size-name);
@@ -13,32 +13,37 @@
 
     $box-height: $font-size * $relative-line-height;
 
-    // User entered cap height is mixed with the line height
     $cap-height-in-pixels: $box-height * $cap-height;
-
 
     @if ($cap-height-in-pixels > (floor($rows) * $baseline)) {
       $offset: (ceil($rows) * $baseline) - $cap-height-in-pixels;
       $box-height-with-top: $box-height + $offset;
-      padding-top: $offset + ($top * $baseline);
-      padding-bottom: (ceil($rows + 1) * $baseline - $box-height-with-top) + ($bottom * $baseline);
+      padding-top: $offset + ($padding-top * $baseline);
+      padding-bottom: (ceil($rows + 1) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
     }
     @else {
       $offset: (floor($rows) * $baseline) - $cap-height-in-pixels;
       $box-height-with-top: $box-height + $offset;
-      padding-top: $offset + ($top * $baseline);
-      padding-bottom: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($bottom * $baseline);
+      padding-top: $offset + ($padding-top * $baseline);
+      padding-bottom: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
     }
 
     line-height: ceil($rows) * $baseline;
     font-size: $font-size;
   }
   @else {
-    @if ($top) {
-      padding-top: $top * $baseline;
+    @if ($padding-top > 0) {
+      padding-top: $padding-top * $baseline;
     }
-    @if ($bottom) {
-      padding-bottom: $bottom * $baseline;
+    @if ($padding-bottom > 0) {
+      padding-bottom: $padding-bottom * $baseline;
     }
+  }
+
+  @if ($margin-top > 0) {
+    margin-top: $margin-top * $baseline;
+  }
+  @if ($margin-bottom > 0) {
+    margin-bottom: $margin-bottom * $baseline;
   }
 }
