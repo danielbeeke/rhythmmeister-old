@@ -1,5 +1,24 @@
-$line-height: 1.2;
 $baseline: 24px;
 
-$font-sizes:  (s: 16px, m: 30px, l: 38px, xl: 80px);
-$cap-heights: (s: 0.62,  m: 0.64,  l: 0.66, xl: 0.69);
+$font-variants:  (
+  s: (
+    font-size: 16px,
+    cap-height: 0.62,
+    line-height: 1.5
+  ),
+  m: (
+    font-size: 30px,
+    cap-height: 0.64,
+    line-height: 1.5
+  ),
+  l: (
+    font-size: 38px,
+    cap-height: 0.66,
+    line-height: 1.5
+  ),
+  xl: (
+    font-size: 80px,
+    cap-height: 0.70,
+    line-height: 1.5
+  )
+);

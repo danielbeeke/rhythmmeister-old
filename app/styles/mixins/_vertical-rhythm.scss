@@ -1,49 +1,55 @@
-@mixin vertical-rhythm($padding-top: 0, $padding-bottom: 0, $margin-top: 0, $margin-bottom: 0, $size-name: '') {
-  @if ($size-name != '') {
-    $relative-line-height: $line-height;
+@function baseline($units: 1) {
+  @return $units * $baseline;
+}
 
-    $font-size: map-get($font-sizes, $size-name);
+@mixin vertical-rhythm($padding-top: 0, $padding-bottom: 0, $margin-top: 0, $margin-bottom: 0, $font-variant: '') {
+  $padding-top-correction: 0;
+  $padding-bottom-correction: 0;
 
-    $rows: $relative-line-height * $font-size / $baseline;
+  @if ($font-variant != '') {
+    $font-variant-info: map-get($font-variants, $font-variant);
+    
+    $font-size: map-get($font-variant-info, 'font-size');
+    $line-height: map-get($font-variant-info, 'line-height');
+    $cap-height: map-get($font-variant-info, 'cap-height') * $line-height;
 
-    $new-line-height-percentage-of-old: ceil($rows) * $baseline / (($relative-line-height * $font-size) / 100);
+    @debug $font-size;
+    @debug $line-height;
+    @debug $cap-height;
+
+    $rows: $line-height * $font-size / $baseline;
+
+    $new-line-height-percentage-of-old: ceil($rows) * $baseline / (($line-height * $font-size) / 100);
     $new-relative-line-height: $line-height * $new-line-height-percentage-of-old / 100;
-    $relative-line-height: $new-relative-line-height;
-    $cap-height: map-get($cap-heights, $size-name) * $line-height;
+    $line-height: $new-relative-line-height;
 
-    $box-height: $font-size * $relative-line-height;
+    $box-height: $font-size * $line-height;
 
     $cap-height-in-pixels: $box-height * $cap-height;
 
     @if ($cap-height-in-pixels > (floor($rows) * $baseline)) {
-      $offset: (ceil($rows) * $baseline) - $cap-height-in-pixels;
-      $box-height-with-top: $box-height + $offset;
-      padding-top: $offset + ($padding-top * $baseline);
-      padding-bottom: (ceil($rows + 1) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
+      $padding-top-correction: (ceil($rows) * $baseline) - $cap-height-in-pixels;
+      $box-height-with-top: $box-height + $padding-top-correction;
+      $padding-bottom-correction: (ceil($rows + 1) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
     }
     @else {
-      $offset: (floor($rows) * $baseline) - $cap-height-in-pixels;
-      $box-height-with-top: $box-height + $offset;
-      padding-top: $offset + ($padding-top * $baseline);
-      padding-bottom: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
+      $padding-top-correction: (floor($rows) * $baseline) - $cap-height-in-pixels;
+      $box-height-with-top: $box-height + $padding-top-correction;
+      $padding-bottom-correction: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
     }
 
     line-height: ceil($rows) * $baseline;
     font-size: $font-size;
   }
-  @else {
-    @if ($padding-top > 0) {
-      padding-top: $padding-top * $baseline;
-    }
-    @if ($padding-bottom > 0) {
-      padding-bottom: $padding-bottom * $baseline;
-    }
+
+  @if ($padding-top > 0 or $padding-top-correction > 0) {
+    padding-top: baseline($padding-top) + $padding-top-correction;
+  }
+  @if ($padding-bottom > 0 or $padding-bottom-correction > 0) {
+    padding-bottom: baseline($padding-bottom) + $padding-bottom-correction;
   }
 
-  @if ($margin-top > 0) {
-    margin-top: $margin-top * $baseline;
-  }
-  @if ($margin-bottom > 0) {
-    margin-bottom: $margin-bottom * $baseline;
-  }
+  // Margins.
+  @if ($margin-top > 0) { margin-top: baseline($margin-top); }
+  @if ($margin-bottom > 0) { margin-bottom: baseline($margin-bottom); }
 }
