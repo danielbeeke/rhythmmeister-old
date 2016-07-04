@@ -1,5 +1,5 @@
 @function baseline($units: 1) {
-  @return $units * $baseline;
+  @return $units * $document-base-line;
 }
 
 @mixin vertical-rhythm($padding-top: 0, $padding-bottom: 0, $margin-top: 0, $margin-bottom: 0, $font-variant: '') {
@@ -7,38 +7,19 @@
   $padding-bottom-correction: 0;
 
   @if ($font-variant != '') {
+
     $font-variant-info: map-get($font-variants, $font-variant);
-    
     $font-size: map-get($font-variant-info, 'font-size');
-    $line-height: map-get($font-variant-info, 'line-height');
-    $cap-height: map-get($font-variant-info, 'cap-height') * $line-height;
+    $rows: map-get($font-variant-info, 'rows');
+    $percentage-till-base-line: map-get($font-variant-info, 'base-line');
 
-    @debug $font-size;
-    @debug $line-height;
-    @debug $cap-height;
 
-    $rows: $line-height * $font-size / $baseline;
+    $pixels-till-base-line: $rows * $document-base-line * $percentage-till-base-line;
+    $leading: $rows * $document-base-line - $pixels-till-base-line;
+    $padding-top-correction: $leading % $document-base-line;
+    $padding-bottom-correction: ($document-base-line - $padding-top-correction) % $document-base-line;
 
-    $new-line-height-percentage-of-old: ceil($rows) * $baseline / (($line-height * $font-size) / 100);
-    $new-relative-line-height: $line-height * $new-line-height-percentage-of-old / 100;
-    $line-height: $new-relative-line-height;
-
-    $box-height: $font-size * $line-height;
-
-    $cap-height-in-pixels: $box-height * $cap-height;
-
-    @if ($cap-height-in-pixels > (floor($rows) * $baseline)) {
-      $padding-top-correction: (ceil($rows) * $baseline) - $cap-height-in-pixels;
-      $box-height-with-top: $box-height + $padding-top-correction;
-      $padding-bottom-correction: (ceil($rows + 1) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
-    }
-    @else {
-      $padding-top-correction: (floor($rows) * $baseline) - $cap-height-in-pixels;
-      $box-height-with-top: $box-height + $padding-top-correction;
-      $padding-bottom-correction: (ceil($box-height-with-top / $baseline) * $baseline - $box-height-with-top) + ($padding-bottom * $baseline);
-    }
-
-    line-height: ceil($rows) * $baseline;
+    line-height: $rows * $document-base-line;
     font-size: $font-size;
   }
 

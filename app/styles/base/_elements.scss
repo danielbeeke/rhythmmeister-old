@@ -1,16 +1,17 @@
 html {
-  font-family: 'Open sans';
-  @include visualize-vertical-rhythm();
+  font-family: 'Open sans', sans-serif;
+  @include vertical-rhythm-grid();
   padding: 0;
 }
 
 html, body {
   margin: 0;
   font-size: 16px;
+  line-height: 1;
 }
 
 body {
-  padding: 0 $baseline;
+  padding: 0 $document-base-line;
 }
 
 h1, h2, h3, h4, p {
@@ -19,6 +20,7 @@ h1, h2, h3, h4, p {
 
 h1 {
   @include vertical-rhythm(0, 0, 0, 0, xl);
+  @include visualize-vertical-rhythm();
 }
 
 h2 {
