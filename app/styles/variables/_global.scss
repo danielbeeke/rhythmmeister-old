@@ -1,24 +1,24 @@
-$document-base-line: 25px;
+$document-base-line: 24px;
 
 $font-variants:  (
   s: (
     font-size: 16px,
-    base-line: 0.67,
+    base-line: 0.78417266187,
     rows: 1
   ),
   m: (
     font-size: 30px,
-    base-line: 0.64,
-    rows: 3
+    base-line: 0.78417266187,
+    rows: 2
   ),
   l: (
-    font-size: 38px,
-    base-line: 0.66,
-    rows: 4
+    font-size: 52px,
+    base-line: 0.78417266187,
+    rows: 3
   ),
   xl: (
-    font-size: 102px,
-    base-line: 0.64,
-    rows: 4
+    font-size: 50px,
+    base-line: 0.78417266187,
+    rows: 3
   )
 );

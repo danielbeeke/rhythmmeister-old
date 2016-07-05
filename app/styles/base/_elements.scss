@@ -16,11 +16,11 @@ body {
 
 h1, h2, h3, h4, p {
   margin: 0;
+  @include visualize-vertical-rhythm();
 }
 
 h1 {
   @include vertical-rhythm(0, 0, 0, 0, xl);
-  @include visualize-vertical-rhythm();
 }
 
 h2 {
@@ -30,7 +30,7 @@ h2 {
 
 h3 {
   @include vertical-rhythm(0, 0, 0, 0, m);
-  color: orangered;
+  //color: orangered;
 }
 
 h4 {
