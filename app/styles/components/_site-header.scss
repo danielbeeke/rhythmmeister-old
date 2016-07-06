@@ -1,7 +1,8 @@
 .site-header {
   position: relative;
+  @include clearfix;
 
-  &:after {
+  &:before {
     content: '';
     position: absolute;
     top: 0;
@@ -24,4 +25,8 @@
     clear: both;
   }
 
+  .button-wrapper {
+    clear: both;
+    @include vertical-rhythm(0, 2);
+  }
 }

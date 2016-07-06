@@ -1,6 +1,16 @@
 body {
   &.has-visible-vertical-rhythm-grid {
-    @include vertical-rhythm-grid();
+    &:before {
+      z-index: 100;
+      position: fixed;
+      content: '';
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: 100%;
+      @include vertical-rhythm-grid('00ffff');
+    }
   }
 
   &.has-visible-horizontal-grid {
