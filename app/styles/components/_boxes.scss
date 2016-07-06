@@ -1,13 +1,11 @@
 .box1 {
-  @include vertical-rhythm(7, 0, 1, 1);
-  width: 50%;
+  @include vertical-rhythm(7, 0, 1);
+  @include grid-span(5, 8);
   background: orangered;
-  float: right;
 }
 
 .box2 {
-  width: 50%;
-  float: left;
+  @include grid-span(7, 1);
 }
 
 .box3 {

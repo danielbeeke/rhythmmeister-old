@@ -1,0 +1,26 @@
+body {
+  &.has-visible-vertical-rhythm-grid {
+    @include vertical-rhythm-grid();
+  }
+
+  &.has-visible-horizontal-grid {
+    &:after {
+      z-index: -1;
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      max-width: $max-width;
+      width: 100%;
+      @include background-grid($color: rgba(green, .3));
+    }
+  }
+
+  &.has-visible-vertical-rhythm-helpers {
+    h1, h2, h3, h4, p {
+      @include visualize-vertical-rhythm();
+    }
+  }
+}

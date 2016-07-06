@@ -1,7 +1,11 @@
 {
   "name": "vertical-grid",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "jquery.hotkeys": "jeresig/jquery.hotkeys#^0.2.0",
+    "singularity": "^1.7.0"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3"
