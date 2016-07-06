@@ -2,7 +2,7 @@
   @return $units * $document-base-line;
 }
 
-@mixin vertical-rhythm($padding-top: 0, $padding-bottom: 0, $margin-top: 0, $margin-bottom: 0, $font-variant: '') {
+@mixin vertical-rhythm($padding-top: 0, $padding-bottom: 0, $margin-top: 0, $margin-bottom: 0, $font-variant: '', $border-top-width: 0, $border-bottom-width: 0) {
   $padding-top-correction: 0;
   $padding-bottom-correction: 0;
 
@@ -17,8 +17,8 @@
 
     $pixels-till-base-line: $rows * $document-base-line * $percentage-till-base-line;
     $leading: $rows * $document-base-line - $pixels-till-base-line;
-    $padding-top-correction: $leading % $document-base-line;
-    $padding-bottom-correction: ($document-base-line - $padding-top-correction) % $document-base-line;
+    $padding-top-correction: ($leading % $document-base-line) - $border-top-width;
+    $padding-bottom-correction: (($document-base-line - $padding-top-correction) % $document-base-line) - $border-bottom-width;
 
     line-height: $rows * $document-base-line;
     font-size: $font-size;

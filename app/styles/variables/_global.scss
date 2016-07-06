@@ -17,28 +17,13 @@ $font-variants:  (
     rows: 2
   ),
   xl: (
-    font-size: 56px,
-    base-line: 0.73,
+    font-size: 66px,
+    base-line: 0.77,
     rows: 4
   )
 );
 
 $max-width: 1280px;
 
-/*
-    font-size: 24px,
-    base-line: 0.88,
-    rows: 1
-*/
-
-/*
-    font-size: 24px,
-    base-line: 0.70,
-    rows: 2
-*/
-
-/*
-    font-size: 24px,
-    base-line: 0.63,
-    rows: 3
-*/
+$speed: .4s;
+$easing: cubic-bezier(.53,.06,.33,.85);

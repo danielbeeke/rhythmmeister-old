@@ -1,12 +1,51 @@
 .button {
   border-radius: 5px;
   background: orangered;
-  @include vertical-rhythm(0, .2, 1, .8, m);
   padding-left: $document-base-line;
   padding-right: $document-base-line;
   display: inline-block;
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: all $speed $easing;
+  position: relative;
 
+  &:not(.round) {
+    @include vertical-rhythm(0, .2, 1, .8, m, 2px, 2px);
+    border: 2px solid orangered;
+
+    &:after {
+      content: '';
+      opacity: 0;
+      background-image: url('../images/loading-stripes.gif');
+      transform: scaleX(-1);
+      position: absolute;
+      transition: opacity $speed $easing;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+    }
+
+    &:hover,
+    &.active {
+      background-color: transparent;
+      border-color: white;
+
+      &:after {
+        opacity: .1;
+      }
+    }
+  }
+
+  &.round {
+    border-radius: 40px;
+    @include vertical-rhythm(.5, 0, .5, 0, s);
+
+    &:hover,
+    &.active {
+      background-color: white;
+      color: orangered;
+    }
+  }
 }

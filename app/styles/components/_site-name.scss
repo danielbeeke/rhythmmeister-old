@@ -1,0 +1,5 @@
+.site-name {
+  @include vertical-rhythm(0, 0, 0, 0, l);
+  color: orangered;
+  font-weight: bold;
+}

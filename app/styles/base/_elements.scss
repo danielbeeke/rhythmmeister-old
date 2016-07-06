@@ -25,7 +25,7 @@ h1, h2, h3, h4, p {
 }
 
 h1 {
-  @include vertical-rhythm(1, 0, 0, 0, xl);
+  @include vertical-rhythm(0, 2, 0, 0, xl);
 }
 
 h2 {
@@ -51,4 +51,16 @@ p {
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(orangered, .4);
+}
+
+*:focus {
+  outline: none;
+}
+
+*::-moz-focus-inner {
+  border: none;
 }

@@ -26,5 +26,10 @@ $(function() {
         if (value) {
             $('body').addClass(className);
         }
+    });
+
+    $('.toggle-grid-visibility').on('click', function () {
+        toggleBodyClass('has-visible-vertical-rhythm-grid');
+        return false;
     })
 });

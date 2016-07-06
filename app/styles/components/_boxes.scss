@@ -1,7 +1,7 @@
 .box1 {
   @include vertical-rhythm(7, 0, 1);
   @include grid-span(5, 8);
-  background: orangered;
+  //background: orangered;
 }
 
 .box2 {
