@@ -17,8 +17,8 @@
 
     $pixels-till-base-line: $rows * $document-base-line * $percentage-till-base-line;
     $leading: $rows * $document-base-line - $pixels-till-base-line;
-    $padding-top-correction: ($leading % $document-base-line) - $border-top-width;
-    $padding-bottom-correction: (($document-base-line - $padding-top-correction) % $document-base-line) - $border-bottom-width;
+    $padding-top-correction: $leading % $document-base-line;
+    $padding-bottom-correction: ($document-base-line - $padding-top-correction) % $document-base-line;
 
     line-height: $rows * $document-base-line;
     font-size: $font-size;
@@ -31,7 +31,6 @@
     padding-bottom: baseline($padding-bottom) + $padding-bottom-correction;
   }
 
-  // Margins.
-  @if ($margin-top > 0) { margin-top: baseline($margin-top); }
-  @if ($margin-bottom > 0) { margin-bottom: baseline($margin-bottom); }
+  @if ($margin-top > 0 or $border-top-width) { margin-top: baseline($margin-top) - $border-top-width; }
+  @if ($margin-bottom > 0 or $border-bottom-width) { margin-bottom: baseline($margin-bottom) - $border-bottom-width; }
 }

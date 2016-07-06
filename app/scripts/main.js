@@ -1,35 +1,35 @@
 $(function() {
     $(document).bind('keydown', 'ctrl+\\', function () {
-        toggleBodyClass('has-visible-vertical-rhythm-grid');
+        toggleHtmlClass('has-visible-vertical-rhythm-grid');
     });
 
     $(document).bind('keydown', 'ctrl+\'', function () {
-        toggleBodyClass('has-visible-vertical-rhythm-helpers');
+        toggleHtmlClass('has-visible-vertical-rhythm-helpers');
     });
 
     $(document).bind('keydown', 'ctrl+;', function () {
-        toggleBodyClass('has-visible-horizontal-grid');
+        toggleHtmlClass('has-visible-horizontal-grid');
     });
 
-    function toggleBodyClass(className) {
+    function toggleHtmlClass(className) {
         var activeClasses = JSON.parse(localStorage.getItem('activeClasses'));
         if (!activeClasses) {
             activeClasses = {}
         }
-        $('body').toggleClass(className);
-        activeClasses[className] = $('body').hasClass(className);
+        $('html').toggleClass(className);
+        activeClasses[className] = $('html').hasClass(className);
         localStorage.setItem('activeClasses', JSON.stringify(activeClasses));
     }
 
     var activeClasses = JSON.parse(localStorage.getItem('activeClasses'));
     $.each(activeClasses, function (className, value) {
         if (value) {
-            $('body').addClass(className);
+            $('html').addClass(className);
         }
     });
 
     $('.toggle-grid-visibility').on('click', function () {
-        toggleBodyClass('has-visible-vertical-rhythm-grid');
+        toggleHtmlClass('has-visible-vertical-rhythm-grid');
         return false;
     })
 });

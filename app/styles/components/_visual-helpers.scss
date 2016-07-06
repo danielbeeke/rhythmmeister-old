@@ -1,21 +1,23 @@
-body {
+html {
   &:before {
     opacity: 0;
     z-index: 100;
-    position: fixed;
+    position: absolute;
     content: '';
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: 100%;
     transition: opacity $speed $easing;
     pointer-events: none;
+    height: 100%;
     width: 100%;
     @include vertical-rhythm-grid('000000');
   }
+}
 
+body {
   &:after {
-    z-index: -1;
+    z-index: 99;
     position: fixed;
     content: '';
     opacity: 0;
@@ -29,7 +31,9 @@ body {
     width: 100%;
     @include background-grid($color: rgba(green, .3));
   }
+}
 
+html {
   &.has-visible-vertical-rhythm-grid {
     &:before {
       opacity: 1;
@@ -37,7 +41,7 @@ body {
   }
 
   &.has-visible-horizontal-grid {
-    &:after {
+    body:after {
       opacity: 1;
     }
   }
