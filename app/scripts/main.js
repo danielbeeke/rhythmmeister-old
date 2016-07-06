@@ -3,11 +3,11 @@ $(function() {
         toggleBodyClass('has-visible-vertical-rhythm-grid');
     });
 
-    $(document).bind('keydown', "ctrl+'", function () {
+    $(document).bind('keydown', 'ctrl+\'', function () {
         toggleBodyClass('has-visible-vertical-rhythm-helpers');
     });
 
-    $(document).bind('keydown', "ctrl+;", function () {
+    $(document).bind('keydown', 'ctrl+;', function () {
         toggleBodyClass('has-visible-horizontal-grid');
     });
 
