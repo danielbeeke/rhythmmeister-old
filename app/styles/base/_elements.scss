@@ -16,10 +16,16 @@ body {
 
 h1, h2, h3, h4, p {
   margin: 0;
+  
+  &.suffix {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: ($document-base-line / 2);
+  }
 }
 
 h1 {
-  @include vertical-rhythm(0, 0, 0, 0, xl);
+  @include vertical-rhythm(1, 0, 0, 0, xl);
 }
 
 h2 {
@@ -29,7 +35,7 @@ h2 {
 
 
 h3 {
-  @include vertical-rhythm(1, 0, 0, 0, m);
+  @include vertical-rhythm(1, 1, 0, 0, m);
   color: orangered;
 }
 

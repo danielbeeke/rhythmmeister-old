@@ -1,0 +1,27 @@
+.site-header {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    height: 100%;
+    background: url('../images/Wood_letterpress_blocks.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  h1, h2, h3 {
+    color: white;
+    clear: left;
+  }
+
+  h1 {
+    @include grid-span(6, 1);
+    clear: both;
+  }
+
+}

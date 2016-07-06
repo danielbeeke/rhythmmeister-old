@@ -6,7 +6,7 @@ body {
   &.has-visible-horizontal-grid {
     &:after {
       z-index: -1;
-      position: absolute;
+      position: fixed;
       content: '';
       top: 0;
       left: 50%;
