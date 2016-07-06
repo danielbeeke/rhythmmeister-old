@@ -14,7 +14,6 @@
     $percentage-till-base-line: map-get($font-variant-info, 'base-line');
 
 
-
     $pixels-till-base-line: $rows * $document-base-line * $percentage-till-base-line;
     $leading: $rows * $document-base-line - $pixels-till-base-line;
     $padding-top-correction: $leading % $document-base-line;

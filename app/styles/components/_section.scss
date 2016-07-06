@@ -1,0 +1,14 @@
+.section {
+  @include vertical-rhythm(1, 1);
+  @include clearfix;
+}
+
+.section:nth-child(odd) .section-content {
+  @include grid-span(5, 1);
+  clear: both;
+}
+
+.section:nth-child(even) .section-content {
+  @include grid-span(5, 8);
+  clear: both;
+}

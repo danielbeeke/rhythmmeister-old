@@ -2,6 +2,7 @@ html {
   font-family: 'Open sans', sans-serif;
   padding: 0;
   position: relative;
+  overflow-x: hidden;
 }
 
 html, body {
@@ -12,6 +13,7 @@ html, body {
 }
 
 body {
+  counter-reset: section;
   padding: 0 $document-base-line;
 }
 
