@@ -38,27 +38,56 @@
       <div class="section introduction">
         <div class="section-content">
           <h2 class="section-title">Introduction</h2>
-          <p>Print has solved typography problems ages ago. Things like the baseline and kerning are industry standard, the web however evolving from hypertext not so much.</p>
+          <p>Print has solved typography problems ages ago. Things like the baseline and kerning are industry standards, the web however evolving from hypertext not so much.</p>
           <p>The main problem lies in the use of line-height instead of a base-line. RhythmMeister provides a sass mixin so you can use the base-line instead of the line-height.</p>
           <p>It provides this via a simple trick. It sets the line-height to the selected rows and than it adds a little padding to the top and the bottom.</p>
         </div>
-        <div class="section-image"></div>
+        <div class="section-image">
+          <div class="letters">Rhy</div>
+          <div class="baseline-text">Baseline (print)</div>
+          <div class="line-height-text">Line-height (web)</div>
+        </div>
       </div>
 
       <div class="section installation">
         <div class="section-content">
           <h2 class="section-title">Installation</h2>
-          <p>You can install RhythmMeister via bower. Just include the _rhythmmeister.scss</p>
+          <p>You can install RhythmMeister via bower.</p><p>Just use <strong>bower install rhythmmeister --save</strong>.<br>Afterwards you can include the _rhythmmeister.scss.</p>
         </div>
         <div class="section-image"></div>
       </div>
 
-      <div class="section">
+      <div class="section helper-visualize-grid">
         <div class="section-content">
-          <h2 class="section-title">How to use</h2>
-          <p>RhythmMeister provides a couple of mixins. The first one base-line().</p>
+          <h2 class="section-title">vertical-rhythm-grid()</h2>
+          <p>You can use this to visualize the baseline grid. See our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/scripts/main.js">javascript</a> and our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/styles/components/_visual-helpers.scss">helpers sass</a>.</p>
+          <p>You can press CTRL + \ to see it on the whole page.</p>
+        </div>
+        <div class="section-image">
         </div>
       </div>
+
+      <div class="section helper-visualize">
+        <div class="section-content">
+          <h2 class="section-title">visualize-vertical-rhythm()</h2>
+          <p>You can use this one to visualize the font elements while developing. See our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/scripts/main.js">javascript</a> and our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/styles/components/_visual-helpers.scss">helpers sass</a>.</p>
+          <p>You can press CTRL + ' to see it on all the text elements on this page.</p>
+        </div>
+        <div class="section-image">
+          <div class="letters"><span class="letters-inner">Lorem ipsum</span></div>
+        </div>
+      </div>
+
+      <div class="section vertical-rhythm">
+        <div class="section-content">
+          <h2 class="section-title">vertical-rhythm()</h2>
+          <p>You can use this one to visualize the font elements while developing. See our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/scripts/main.js">javascript</a> and our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/styles/components/_visual-helpers.scss">helpers sass</a>.</p>
+        </div>
+        <div class="section-image">
+        </div>
+      </div>
+
+
     </main>
   </div>
 

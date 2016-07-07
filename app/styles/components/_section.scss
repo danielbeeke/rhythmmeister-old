@@ -1,5 +1,5 @@
 .section {
-  @include vertical-rhythm(1, 1);
+  @include vertical-rhythm(2, 2);
   @include clearfix;
   position: relative;
 }
@@ -32,13 +32,66 @@
   top: 0;
   bottom: 0;
   right: 0;
-  background: url('../images/typography.svg') no-repeat center center;
+
+  .baseline-text {
+    position: absolute;
+    top: baseline(12);
+    right: 0;
+    width: 100%;
+    @include vertical-rhythm(0, 0, 0, 0, s);
+    color: orangered;
+    text-align: right;
+    border-bottom: 2px solid orangered;
+  }
+
+  .line-height-text {
+    width: 100%;
+    position: absolute;
+    text-align: right;
+    top: baseline(9);
+    right: 0;
+    color: orangered;
+    @include vertical-rhythm(0, 0, 0, 0, s);
+    border-bottom: 2px solid orangered;
+
+  }
+
+  .letters {
+    @include vertical-rhythm(2, 0, 0, 0, xxxl);
+    transform: translateX(-20px);
+    position: relative;
+  }
+}
+
+.section.helper-visualize .section-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  .letters {
+    @include vertical-rhythm(2, 0, 5, 0, l);
+    @include visualize-vertical-rhythm();
+  }
+
+  .letters-inner {
+    margin-left: -2px;
+  }
 }
 
 .section.installation .section-image {
   position: absolute;
-  top: baseline(1);
-  bottom: baseline(1);
+  top: baseline(2);
+  bottom: baseline(3);
   background: url('../images/bower-logo.svg') no-repeat center center;
   background-size: contain;
+}
+
+.section.helper-visualize-grid .section-image {
+  position: absolute;
+  top: baseline(2);
+  bottom: baseline(1);
+  right: 0;
+  @include vertical-rhythm(0, 0, 2, 2);
+  @include vertical-rhythm-grid('000000');
 }
