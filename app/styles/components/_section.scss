@@ -1,14 +1,44 @@
 .section {
   @include vertical-rhythm(1, 1);
   @include clearfix;
+  position: relative;
 }
 
-.section:nth-child(odd) .section-content {
-  @include grid-span(5, 1);
-  clear: both;
+.section:nth-child(odd) {
+  .section-content {
+    @include grid-span(5, 1);
+    clear: both;
+  }
+
+  .section-image {
+    @include grid-span(5, 8);
+  }
 }
 
-.section:nth-child(even) .section-content {
-  @include grid-span(5, 8);
-  clear: both;
+
+.section:nth-child(even) {
+  .section-content {
+    @include grid-span(5, 8);
+    clear: both;
+  }
+
+  .section-image {
+    @include grid-span(5, 1);
+  }
+}
+
+.section.introduction .section-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: url('../images/typography.svg') no-repeat center center;
+}
+
+.section.installation .section-image {
+  position: absolute;
+  top: baseline(1);
+  bottom: baseline(1);
+  background: url('../images/bower-logo.svg') no-repeat center center;
+  background-size: contain;
 }
