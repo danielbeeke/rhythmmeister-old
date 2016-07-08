@@ -1,13 +1,23 @@
 {
-  "name": "vertical-grid",
-  "private": true,
-  "dependencies": {
-    "jquery": "^3.0.0",
-    "jquery.hotkeys": "jeresig/jquery.hotkeys#^0.2.0",
-    "singularity": "^1.7.0"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.5.3"
-  }
+  "name": "RhythmMeister",
+  "homepage": "https://github.com/danielbeeke/rhythmmeister",
+  "authors": [
+    "Daniel Beeke <daniel@studiofonkel.nl>"
+  ],
+  "description": "A vertical rhythm Sass Mixin",
+  "main": "stylesheets/_rhythmmeister.scss",
+  "keywords": [
+    "Vertical",
+    "rhythm",
+    "typography",
+    "baseline"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
