@@ -4,7 +4,8 @@
   "dependencies": {
     "jquery": "^3.0.0",
     "jquery.hotkeys": "jeresig/jquery.hotkeys#^0.2.0",
-    "singularity": "^1.7.0"
+    "singularity": "^1.7.0",
+    "RhythmMeister": "rhythmmeister#^0.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

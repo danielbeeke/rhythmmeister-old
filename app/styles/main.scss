@@ -1,6 +1,8 @@
 @import "../../bower_components/singularity/stylesheets/singularitygs";
 @include sgs-change('debug', true);
 
+@import "../../bower_components/RhythmMeister/stylesheets/rhythmmeister";
+
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
 @import 'variables/**/*';
 @import 'mixins/**/*';
