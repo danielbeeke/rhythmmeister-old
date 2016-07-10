@@ -44,7 +44,14 @@
 }
 
 .section-code {
-  @include vertical-rhythm(4);
+  background-color: #111111;
+  @include vertical-rhythm(1, 0, 3, 0, s);
+  padding-left: baseline();
+  padding-right: baseline();
+
+  span {
+    //@include vertical-rhythm(0, 0, 0, 0, s);
+  }
 }
 
 .section.introduction .section-image {

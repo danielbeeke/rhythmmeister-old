@@ -67,20 +67,21 @@
           <p>With the rows you can set how much rows it should take to render the font.</p>
         </div>
         <div class="section-code">
-          <p>$document-base-line: 24px;<br><br>
+          <pre><span style="color: orangered; font-weight: bold">$document-base-line</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">24</span><span style="color: #cdcaa9; font-weight: bold">px</span><span style="color: #ffffff">;</span>
 
-            $font-variants:  (<br>
-            &nbsp;&nbsp;m: (<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;font-size: 26px,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;base-line: 0.71,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;rows: 2<br>
-            &nbsp;&nbsp;),<br>
-            &nbsp;&nbsp;l: (<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;font-size: 32px,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;base-line: 0.76,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;rows: 2<br>
-            &nbsp;&nbsp;)<br>
-            );</p>
+<span style="color: orangered; font-weight: bold">$font-variants</span><span style="color: #ffffff">:</span> <span style="color: #ffffff">(</span>
+  <span style="color: orangered; font-weight: bold">m</span><span style="color: #ffffff">:</span> <span style="color: #ffffff">(</span>
+    <span style="color: orangered; font-weight: bold">font-size</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">26</span><span style="color: #cdcaa9; font-weight: bold">px</span><span style="color: #ffffff">,</span>
+    <span style="color: orangered; font-weight: bold">base-line</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0.71</span><span style="color: #ffffff">,</span>
+    <span style="color: orangered; font-weight: bold">rows</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">2</span>
+  <span style="color: #ffffff">),</span>
+  <span style="color: orangered; font-weight: bold">l</span><span style="color: #ffffff">:</span> <span style="color: #ffffff">(</span>
+    <span style="color: orangered; font-weight: bold">font-size</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">32</span><span style="color: #cdcaa9; font-weight: bold">px</span><span style="color: #ffffff">,</span>
+    <span style="color: orangered; font-weight: bold">base-line</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0.76</span><span style="color: #ffffff">,</span>
+    <span style="color: orangered; font-weight: bold">rows</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">2</span>
+  <span style="color: #ffffff">)</span>
+<span style="color: #ffffff">);</span>
+</pre>
 
         </div>
       </div>
@@ -88,7 +89,7 @@
       <div class="section helper-visualize-grid">
         <div class="section-content">
           <h2 class="section-title">vertical-rhythm-grid()</h2>
-          <p>You can use this to visualize the baseline grid. See our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/scripts/main.js">javascript</a> and our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/styles/components/_visual-helpers.scss">helpers sass</a>.</p>
+          <p>You can use this to visualize the baseline grid. See our <a href="https://github.com/danielbeeke/rhythmmeister/blob/gh-pages-source/app/scripts/main.js">javascript</a> and our <a href="https://github.com/danielbeeke/rhythmmeister/blob/gh-pages-source/app/styles/components/_visual-helpers.scss">helpers sass</a>.</p>
           <p>You can press CTRL + \ to see it on the whole page.</p>
         </div>
         <div class="section-image">
@@ -98,7 +99,7 @@
       <div class="section helper-visualize">
         <div class="section-content">
           <h2 class="section-title">visualize-vertical-rhythm()</h2>
-          <p>You can use this one to visualize the font elements while developing. See our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/scripts/main.js">javascript</a> and our <a href="https://github.com/danielbeeke/rhythmmeister/blob/master/app/styles/components/_visual-helpers.scss">helpers sass</a>.</p>
+          <p>You can use this one to visualize the font elements while developing. See our <a href="https://github.com/danielbeeke/rhythmmeister/blob/gh-pages-source/app/scripts/main.js">javascript</a> and our <a href="https://github.com/danielbeeke/rhythmmeister/blob/gh-pages-source/app/styles/components/_visual-helpers.scss">helpers sass</a>.</p>
           <p>You can press CTRL + ' to see it on all the text elements on this page.</p>
         </div>
         <div class="section-image">
@@ -113,17 +114,17 @@
           <p>The first for four parameters are unitless. You just need to supply a number. The font variant needs to be a key out of the $font-variants variable. The last two are fixes to substract the border of the margin. You just need to supply the pixels to it.</p>
         </div>
         <div class="section-code">
-          <p>
-          @include vertical-rhythm(<br>
-            &nbsp;&nbsp;$padding-top: 0,<br>
-            &nbsp;&nbsp;$padding-bottom: 0,<br>
-            &nbsp;&nbsp;$margin-top: 0,<br>
-            &nbsp;&nbsp;$margin-bottom: 0,<br>
-            &nbsp;&nbsp;$font-variant: '',<br>
-            &nbsp;&nbsp;$border-top-width: 0,<br>
-            &nbsp;&nbsp;$border-bottom-width: 0<br>
-          );
-          </p>
+          <pre> <span style="color: #fb660a; font-weight: bold">@include</span><span style="color: #ffffff"> vertical-rhythm(</span>
+  <span style="color: orangered; font-weight: bold">$padding-top</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
+  <span style="color: orangered; font-weight: bold">$padding-bottom</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
+  <span style="color: orangered; font-weight: bold">$margin-top</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
+  <span style="color: orangered; font-weight: bold">$margin-bottom</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
+  <span style="color: orangered; font-weight: bold">$font-variant</span><span style="color: #ffffff">:</span> <span style="color: #0086d2">&#39;&#39;</span><span style="color: #ffffff">,</span>
+  <span style="color: orangered; font-weight: bold">$border-top-width</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
+  <span style="color: orangered; font-weight: bold">$border-bottom-width</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span>
+<span style="color: #ffffff">);</span>
+</pre>
+
         </div>
       </div>
 
