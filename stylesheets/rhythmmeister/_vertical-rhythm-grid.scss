@@ -1,3 +1,29 @@
-@mixin vertical-rhythm-grid($color: '0000ff') {
-  background-image: url('http://basehold.it/i/#{strip-unit($document-base-line)}/#{$color}');
+@mixin vertical-rhythm-grid($color: '#0000ff') {
+  $encodeMap:(
+          '%"':'%25%22',
+          '<':'%3C',
+          ' ':'%20',
+          '=':'%3D',
+          '\"':'%22',
+          ':':'%3A',
+          '/':'%2F',
+          '.':'%2E',
+          '>':'%3E',
+          '#':'%23',
+          '-':'%2D'
+  );
+
+  $SVG: '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1" height="#{strip-unit($document-base-line)}" viewBox="0 0 1 #{strip-unit($document-base-line)}">';
+  $SVG: $SVG + '<rect width="1" height="1" x="0" y="0" fill="#{$color}"/></svg>';
+
+  @each $char, $code in $encodeMap {
+    $index: str-index($SVG, $char);
+    @while $index {
+      $index: str-index($SVG, $char);
+      $SVG: str-slice($SVG, 1, $index - 1) + $code + str-slice($SVG, $index + str-length($char));
+      $index: str-index($SVG, $char);
+    }
+  }
+
+  background-image: url('data:image/svg+xml,' + $SVG);
 }
