@@ -20,28 +20,25 @@
 
     $font-variant-info: map-get($font-variants, $font-variant);
     $font-size: map-get($font-variant-info, 'font-size');
+
+    // You need to fix the base line with $fiddling: true to these values.
     $orig-font-size: 60px;
     $orig-rows: 4;
 
     $rows: map-get($font-variant-info, 'rows');
-    $original-percentage-till-base-line: map-get($font-variant-info, 'base-line');
+    $percentage-till-base-line: map-get($font-variant-info, 'base-line');
 
     @if ($fiddling) {
-      $percentage-till-base-line: $original-percentage-till-base-line;
     }
     @else {
-      // Changing rows.
+      // Changing font-size.
       $percentage-till-base-line: 0.5 + (
-        (($original-percentage-till-base-line - 0.5) / $rows) * $orig-rows
+        ($percentage-till-base-line - 0.5) * ($font-size / $orig-font-size)
       );
 
-      // Changing font-size.
-      $factor-font-size: $font-size / $orig-font-size;
-
-      @warn $factor-font-size;
-
+      // Changing rows.
       $percentage-till-base-line: 0.5 + (
-        ($percentage-till-base-line - 0.5) * $factor-font-size
+        ($percentage-till-base-line - 0.5) * ($orig-rows / $rows)
       );
     }
 
