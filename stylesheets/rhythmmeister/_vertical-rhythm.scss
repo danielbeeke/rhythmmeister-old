@@ -2,17 +2,48 @@
   @return $units * $document-base-line;
 }
 
-@mixin vertical-rhythm($padding-top: 0, $padding-bottom: 0, $margin-top: 0, $margin-bottom: 0, $font-variant: '', $border-top-width: 0, $border-bottom-width: 0) {
+@mixin vertical-rhythm(
+  $padding-top: 0,
+  $padding-bottom: 0,
+  $margin-top: 0,
+  $margin-bottom: 0,
+  $font-variant: '',
+  $border-top-width: 0,
+  $border-bottom-width: 0,
+  $fiddling: false
+) {
   $padding-top-correction: 0;
   $padding-bottom-correction: 0;
+  $percentage-till-base-line: 0;
 
   @if ($font-variant != '') {
 
     $font-variant-info: map-get($font-variants, $font-variant);
     $font-size: map-get($font-variant-info, 'font-size');
-    $rows: map-get($font-variant-info, 'rows');
-    $percentage-till-base-line: map-get($font-variant-info, 'base-line');
+    $orig-font-size: 60px;
+    $orig-rows: 4;
 
+    $rows: map-get($font-variant-info, 'rows');
+    $original-percentage-till-base-line: map-get($font-variant-info, 'base-line');
+
+    @if ($fiddling) {
+      $percentage-till-base-line: $original-percentage-till-base-line;
+    }
+    @else {
+      // Changing rows.
+      $percentage-till-base-line: 0.5 + (
+        (($original-percentage-till-base-line - 0.5) / $rows) * $orig-rows
+      );
+
+      // Changing font-size.
+      $factor-font-size: $font-size / $orig-font-size;
+
+      @warn $factor-font-size;
+
+      $percentage-till-base-line: 0.5 + (
+        ($percentage-till-base-line - 0.5) * $factor-font-size
+      );
+    }
 
     $pixels-till-base-line: $rows * $document-base-line * $percentage-till-base-line;
     $leading: $rows * $document-base-line - $pixels-till-base-line;
