@@ -4,7 +4,6 @@
   "authors": [
     "Daniel Beeke <daniel@studiofonkel.nl>"
   ],
-  "version": "0.2.0",
   "description": "A vertical rhythm Sass Mixin",
   "main": "stylesheets/_rhythmmeister.scss",
   "keywords": [

@@ -1,4 +1,4 @@
-@mixin vertical-rhythm-grid($color: '#0000ff') {
+@mixin vertical-rhythm-grid($color1: '#0000ff', $color2: '#ffffff', $size: 1) {
   $encodeMap:(
           '%"':'%25%22',
           '<':'%3C',
@@ -13,8 +13,8 @@
           '-':'%2D'
   );
 
-  $SVG: '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1" height="#{strip-unit($document-base-line)}" viewBox="0 0 1 #{strip-unit($document-base-line)}">';
-  $SVG: $SVG + '<rect width="1" height="1" x="0" y="0" fill="#{$color}"/></svg>';
+  $SVG: '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="#{$size * 2}" height="#{strip-unit($document-row-size)}" viewBox="0 0 #{$size * 2} #{strip-unit($document-row-size)}">';
+  $SVG: $SVG + '<rect width="#{$size}" height="1" x="0" y="0" fill="#{$color1}"/><rect width="#{$size}" height="1" x="#{$size}" y="0" fill="#{$color2}"/></svg>';
 
   @each $char, $code in $encodeMap {
     $index: str-index($SVG, $char);

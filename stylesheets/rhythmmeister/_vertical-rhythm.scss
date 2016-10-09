@@ -1,5 +1,9 @@
 @function baseline($units: 1) {
-  @return $units * $document-base-line;
+  @return $units * $document-row-size;
+}
+
+@function round-to-number($value-to-round, $round-to) {
+  @return round($value-to-round / $round-to) * $round-to;
 }
 
 @mixin vertical-rhythm(
@@ -7,48 +11,43 @@
   $padding-bottom: 0,
   $margin-top: 0,
   $margin-bottom: 0,
-  $font-variant: '',
+  $font-preset: '',
   $border-top-width: 0,
-  $border-bottom-width: 0,
-  $fiddling: false
+  $border-bottom-width: 0
 ) {
   $padding-top-correction: 0;
   $padding-bottom-correction: 0;
-  $percentage-till-base-line: 0;
 
-  @if ($font-variant != '') {
+  @if ($font-preset != '') {
+    $font-preset-info: map-get($font-presets, $font-preset);
 
-    $font-variant-info: map-get($font-variants, $font-variant);
-    $font-size: map-get($font-variant-info, 'font-size');
+    @if ($font-preset-info) {
+      $font-weight: map-get($font-preset-info, 'font-weight');
+      $text-indent: map-get($font-preset-info, 'text-indent');
+      $font-style: map-get($font-preset-info, 'font-style');
 
-    // You need to fix the base line with $fiddling: true to these values.
-    $orig-font-size: 60px;
-    $orig-rows: 4;
+      $font-size: map-get($font-preset-info, 'font-size');
+      $rows: map-get($font-preset-info, 'rows');
+      $base-line: map-get($font-preset-info, 'base-line');
 
-    $rows: map-get($font-variant-info, 'rows');
-    $percentage-till-base-line: map-get($font-variant-info, 'base-line');
+      $initial-font-base: (($document-row-size * $rows) / 2) + ($base-line - 0.5) * $font-size;
+      $wanted-font-size: round-to-number($initial-font-base, $document-row-size);
+      $padding-top-correction: $wanted-font-size - $initial-font-base;
 
-    @if ($fiddling) {
+      @if ($padding-top-correction < 0) {
+        $padding-top-correction: $document-row-size + $padding-top-correction;
+      }
+      $padding-bottom-correction: $document-row-size - $padding-top-correction;
+
+      line-height: $rows * $document-row-size;
+      font-size: $font-size;
+      text-indent: $text-indent;
+      font-weight: $font-weight;
+      font-style: $font-style;
     }
     @else {
-      // Changing font-size.
-      $percentage-till-base-line: 0.5 + (
-        ($percentage-till-base-line - 0.5) * ($font-size / $orig-font-size)
-      );
-
-      // Changing rows.
-      $percentage-till-base-line: 0.5 + (
-        ($percentage-till-base-line - 0.5) * ($orig-rows / $rows)
-      );
+      @error 'Missing font preset: ' + $font-preset;
     }
-
-    $pixels-till-base-line: $rows * $document-base-line * $percentage-till-base-line;
-    $leading: $rows * $document-base-line - $pixels-till-base-line;
-    $padding-top-correction: $leading % $document-base-line;
-    $padding-bottom-correction: ($document-base-line - $padding-top-correction) % $document-base-line;
-
-    line-height: $rows * $document-base-line;
-    font-size: $font-size;
   }
 
   @if ($padding-top > 0 or $padding-top-correction > 0) {
