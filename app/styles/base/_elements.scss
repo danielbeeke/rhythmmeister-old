@@ -14,7 +14,7 @@ html, body {
 
 body {
   counter-reset: section;
-  padding: 0 $document-base-line;
+  padding: 0 $document-row-size;
 }
 
 h1, h2, h3, h4, p {
@@ -23,7 +23,7 @@ h1, h2, h3, h4, p {
   &.suffix {
     display: inline-block;
     vertical-align: top;
-    margin-left: ($document-base-line / 2);
+    margin-left: ($document-row-size / 2);
   }
 }
 
@@ -33,7 +33,6 @@ h1 {
 
 h2 {
   @include vertical-rhythm(0, 1, 0, 0, l);
-  font-weight: 100;
 }
 
 
@@ -44,8 +43,6 @@ h3 {
 
 h4 {
   @include vertical-rhythm(1, 0, 0, 0, s);
-  font-weight: 600;
-  font-style: italic;
 }
 
 p {

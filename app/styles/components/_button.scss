@@ -1,17 +1,17 @@
 .button {
   border-radius: 5px;
   background: orangered;
-  padding-left: $document-base-line;
-  padding-right: $document-base-line;
+  padding-left: $document-row-size;
+  padding-right: $document-row-size;
   display: inline-block;
   color: white;
   text-decoration: none;
-  font-weight: bold;
   transition: all $speed $easing;
   position: relative;
 
   &:not(.round) {
-    @include vertical-rhythm(0, .2, 1, .8, m, 2px, 2px);
+    @include vertical-rhythm(0, 0, 1, 1, m, 2px, 2px);
+    font-weight: bold;
     border: 2px solid orangered;
 
     &:after {
@@ -41,6 +41,7 @@
   &.round {
     border-radius: 40px;
     @include vertical-rhythm(.5, 0, .5, 0, s);
+    font-weight: bold;
 
     &:hover,
     &.active {

@@ -62,14 +62,14 @@
       <div class="section initialisation">
         <div class="section-content">
           <h2 class="section-title">Initialisation</h2>
-          <p>For RhythmMeister to work you need to set to variables. The first is $document-base-line, this one tells what the height of your vertical grid is. The second variable is a map of all your fonts and their properties.</p>
+          <p>For RhythmMeister to work you need to set to variables. The first is $document-row-size, this one tells what the height of your vertical grid is. The second variable is a map of all your fonts and their properties.</p>
           <p>It will be a little bit difficult to find the baseline, because the baseline will be the percentage from the font object from the top of the object till the baseline. This will be different each time you change the font size or the rows.</p>
           <p>With the rows you can set how much rows it should take to render the font.</p>
         </div>
         <div class="section-code">
-          <pre><span style="color: orangered; font-weight: bold">$document-base-line</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">24</span><span style="color: #cdcaa9; font-weight: bold">px</span><span style="color: #ffffff">;</span>
+          <pre><span style="color: orangered; font-weight: bold">$document-row-size</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">24</span><span style="color: #cdcaa9; font-weight: bold">px</span><span style="color: #ffffff">;</span>
 
-<span style="color: orangered; font-weight: bold">$font-variants</span><span style="color: #ffffff">:</span> <span style="color: #ffffff">(</span>
+<span style="color: orangered; font-weight: bold">$font-presets</span><span style="color: #ffffff">:</span> <span style="color: #ffffff">(</span>
   <span style="color: orangered; font-weight: bold">m</span><span style="color: #ffffff">:</span> <span style="color: #ffffff">(</span>
     <span style="color: orangered; font-weight: bold">font-size</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">26</span><span style="color: #cdcaa9; font-weight: bold">px</span><span style="color: #ffffff">,</span>
     <span style="color: orangered; font-weight: bold">base-line</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0.71</span><span style="color: #ffffff">,</span>
@@ -111,7 +111,7 @@
         <div class="section-content">
           <h2 class="section-title">vertical-rhythm()</h2>
           <p>This is the main function of RhythmMeister, you need to use this for setting padding and margins on font objects (h1, h2,  span, p, etc). The reason all these inputs need to be in one function is because we use the padding for our trick and maybe you still want to use it for adding extra rows than we need to add the rows to the small padding.</p>
-          <p>The first for four parameters are unitless. You just need to supply a number. The font variant needs to be a key out of the $font-variants variable. The last two are fixes to substract the border of the margin. You just need to supply the pixels to it.</p>
+          <p>The first for four parameters are unitless. You just need to supply a number. The font variant needs to be a key out of the $font-presets variable. The last two are fixes to substract the border of the margin. You just need to supply the pixels to it.</p>
         </div>
         <div class="section-code">
           <pre> <span style="color: #fb660a; font-weight: bold">@include</span><span style="color: #ffffff"> vertical-rhythm(</span>
@@ -119,7 +119,7 @@
   <span style="color: orangered; font-weight: bold">$padding-bottom</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
   <span style="color: orangered; font-weight: bold">$margin-top</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
   <span style="color: orangered; font-weight: bold">$margin-bottom</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
-  <span style="color: orangered; font-weight: bold">$font-variant</span><span style="color: #ffffff">:</span> <span style="color: #0086d2">&#39;&#39;</span><span style="color: #ffffff">,</span>
+  <span style="color: orangered; font-weight: bold">$font-preset</span><span style="color: #ffffff">:</span> <span style="color: #0086d2">&#39;&#39;</span><span style="color: #ffffff">,</span>
   <span style="color: orangered; font-weight: bold">$border-top-width</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">,</span>
   <span style="color: orangered; font-weight: bold">$border-bottom-width</span><span style="color: #ffffff">:</span> <span style="color: #0086f7; font-weight: bold">0</span>
 <span style="color: #ffffff">);</span>
